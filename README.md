@@ -1,4 +1,4 @@
-#OpenBook Salon MVP v0.2
+# OpenBook Salon MVP v0.2
 
 A conversion-first, open-source salon appointment booking MVP.
 

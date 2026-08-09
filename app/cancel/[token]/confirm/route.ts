@@ -1,0 +1,1 @@
+import{NextResponse}from'next/server';import{db}from'../../../../lib/db';export async function POST(r:Request,{params}:{params:Promise<{token:string}>}){let{token}=await params;await db().from('appointments').update({status:'cancelled'}).eq('cancellation_token',token);return NextResponse.redirect(new URL(`/cancel/${token}`,r.url),303)}

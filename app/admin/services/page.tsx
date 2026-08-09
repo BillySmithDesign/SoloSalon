@@ -1,1 +1,52 @@
-'use client';import{useEffect,useState}from'react';import{AdminShell}from'../../../lib/admin-ui';export default function P(){return <AdminShell title="Services"><Services/></AdminShell>}function Services(){let[s,setS]=useState<any[]>([]),[f,setF]=useState<any>({category:'Services',name:'',description:'',duration_minutes:60,price_cents:0,active:true,sort_order:10});async function load(){let r=await fetch('/api/admin/services'),j=await r.json();setS(j.services||[])}useEffect(()=>{load()},[]);async function save(){await fetch('/api/admin/services',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(f)});setF({category:'Services',name:'',description:'',duration_minutes:60,price_cents:0,active:true,sort_order:10});load()}return <><div className="card"><h3>Add service</h3><div className="grid two"><input placeholder="Category" value={f.category} onChange={e=>setF({...f,category:e.target.value})}/><input placeholder="Service name" value={f.name} onChange={e=>setF({...f,name:e.target.value})}/><input type="number" placeholder="Minutes" value={f.duration_minutes} onChange={e=>setF({...f,duration_minutes:+e.target.value})}/><input type="number" placeholder="Price $" value={(f.price_cents||0)/100} onChange={e=>setF({...f,price_cents:Math.round(+e.target.value*100)})}/></div><textarea style={{marginTop:10}} placeholder="Short description" value={f.description} onChange={e=>setF({...f,description:e.target.value})}/><button style={{marginTop:10}} disabled={!f.name} onClick={save}>Add service</button></div><div className="card" style={{marginTop:14}}><table className="table"><tbody>{s.map(x=><tr key={x.id}><td><b>{x.name}</b><div className="muted">{x.category}</div></td><td>{x.duration_minutes} min</td><td>{x.price_cents==null?'POA':'$'+(x.price_cents/100).toFixed(0)}</td></tr>)}</tbody></table></div></>}
+'use client';
+
+import { useEffect, useState } from 'react';
+
+export default function ServicesPage() {
+  const [services, setServices] = useState<any[]>([]);
+  const [form, setForm] = useState<any>({
+    category:'Services', name:'', description:'', duration_minutes:60,
+    price_cents:0, active:true, sort_order:10
+  });
+
+  async function load() {
+    const response = await fetch('/api/admin/services');
+    const data = await response.json();
+    setServices(data.services || []);
+  }
+
+  useEffect(() => { load(); }, []);
+
+  async function save() {
+    await fetch('/api/admin/services', {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json' },
+      body:JSON.stringify(form),
+    });
+    setForm({ category:'Services', name:'', description:'', duration_minutes:60, price_cents:0, active:true, sort_order:10 });
+    load();
+  }
+
+  return <>
+    <div className="card">
+      <h3>Add service</h3>
+      <div className="grid two">
+        <input placeholder="Category" value={form.category} onChange={e=>setForm({...form,category:e.target.value})}/>
+        <input placeholder="Service name" value={form.name} onChange={e=>setForm({...form,name:e.target.value})}/>
+        <input type="number" placeholder="Minutes" value={form.duration_minutes} onChange={e=>setForm({...form,duration_minutes:+e.target.value})}/>
+        <input type="number" placeholder="Price $" value={(form.price_cents||0)/100} onChange={e=>setForm({...form,price_cents:Math.round(+e.target.value*100)})}/>
+      </div>
+      <textarea style={{marginTop:10}} placeholder="Short description" value={form.description} onChange={e=>setForm({...form,description:e.target.value})}/>
+      <button style={{marginTop:10}} disabled={!form.name} onClick={save}>Add service</button>
+    </div>
+    <div className="card" style={{marginTop:14}}>
+      <table className="table"><tbody>
+        {services.map(s=><tr key={s.id}>
+          <td><b>{s.name}</b><div className="muted">{s.category}</div></td>
+          <td>{s.duration_minutes} min</td>
+          <td>{s.price_cents==null?'POA':'$'+(s.price_cents/100).toFixed(0)}</td>
+        </tr>)}
+      </tbody></table>
+    </div>
+  </>;
+}

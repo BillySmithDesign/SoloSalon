@@ -1,1 +1,0 @@
-import './globals.css';export const metadata={title:'OpenBook — Salon Booking',description:'Fast, low-friction online salon booking.'};export default function Layout({children}:{children:React.ReactNode}){return <html lang="en-AU"><body>{children}</body></html>}

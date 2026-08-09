@@ -1,0 +1,2 @@
+import{redirect}from'next/navigation';import{isAdmin}from'../../lib/auth';import{db}from'../../lib/db';import{SALON_ID}from'../../lib/config';
+export default async function Page(){if(!(await isAdmin()))redirect('/admin/login');try{const{data}=await db().from('salons').select('onboarding_complete').eq('id',SALON_ID).single();redirect(data?.onboarding_complete?'/admin/calendar':'/admin/setup')}catch{redirect('/admin/setup')}}

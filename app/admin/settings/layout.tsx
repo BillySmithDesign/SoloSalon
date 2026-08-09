@@ -1,5 +1,1 @@
-import { AdminShell } from '../../../lib/admin-ui';
-
-export default function SettingsLayout({ children }: { children: React.ReactNode }) {
-  return <AdminShell title="Settings">{children}</AdminShell>;
-}
+import{AdminShell}from'../../../lib/admin-ui';export default function Layout({children}:{children:React.ReactNode}){return <AdminShell title="Profile">{children}</AdminShell>}

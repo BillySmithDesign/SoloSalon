@@ -1,0 +1,10 @@
+alter table salons add column if not exists stylist_name text;
+alter table salons add column if not exists instagram_url text;
+alter table salons add column if not exists facebook_url text;
+alter table salons add column if not exists tiktok_url text;
+alter table salons add column if not exists location_text text;
+alter table salons add column if not exists profile_image_url text;
+alter table salons add column if not exists booking_message text;
+alter table salons add column if not exists onboarding_complete boolean not null default false;
+create table if not exists working_hours(id uuid primary key default gen_random_uuid(),salon_id uuid not null references salons(id) on delete cascade,weekday int not null,enabled boolean not null default false,start_time time not null default '09:00',end_time time not null default '17:00',unique(salon_id,weekday));
+create table if not exists blocked_times(id uuid primary key default gen_random_uuid(),salon_id uuid not null references salons(id) on delete cascade,starts_at timestamptz not null,ends_at timestamptz not null,label text default 'Blocked',created_at timestamptz default now());

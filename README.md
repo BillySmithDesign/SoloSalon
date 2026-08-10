@@ -1,11 +1,6 @@
-<p align="center">
-  <img src="public/solosalon-logo.png" alt="SoloSalon" width="220" />
-</p>
-
 # SoloSalon
 
 **Free, open-source online booking for solo stylists, home salons and independent salon operators.**
-
 
 SoloSalon exists because running a small home salon should not require another expensive monthly software subscription.
 
@@ -38,6 +33,30 @@ SoloSalon is designed primarily for home salons, freelance hairdressers, indepen
 The SoloSalon software itself is free.
 
 You will need your own Supabase and Vercel accounts. Both offer free tiers that are useful for testing and many small deployments, although their limits and pricing can change.
+
+
+## Public project homepage
+
+SoloSalon now includes a single-fold marketing homepage at:
+
+```text
+/
+```
+
+The homepage explains the open-source philosophy and links visitors to:
+
+- the live booking demo at `/book`
+- the source code on GitHub
+
+Main routes:
+
+```text
+/             Project landing page
+/book         Customer booking page / demo
+/admin        Stylist admin
+/setup-check  Installation checker
+```
+
 
 ## Never used GitHub before?
 

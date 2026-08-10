@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/solosalon-banner.png" alt="SoloSalon" width="220" />
+  <img src="public/solosalon-banner.png" alt="SoloSalon" width="800" />
 </p>
 
 # SoloSalon

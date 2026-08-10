@@ -1,6 +1,11 @@
+<p align="center">
+  <img src="public/solosalon-logo.png" alt="SoloSalon" width="220" />
+</p>
+
 # SoloSalon
 
 **Free, open-source online booking for solo stylists, home salons and independent salon operators.**
+
 
 SoloSalon exists because running a small home salon should not require another expensive monthly software subscription.
 

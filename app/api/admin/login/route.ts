@@ -1,0 +1,1 @@
+import{NextRequest,NextResponse}from'next/server';import{setAdmin}from'../../../../lib/auth';export async function POST(r:NextRequest){const{password}=await r.json();if(!process.env.OPENBOOK_ADMIN_PASSWORD||password!==process.env.OPENBOOK_ADMIN_PASSWORD)return NextResponse.json({error:'Incorrect password'},{status:401});await setAdmin();return NextResponse.json({ok:true})}

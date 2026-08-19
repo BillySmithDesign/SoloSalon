@@ -1,0 +1,6 @@
+.trustMarkers{display:flex;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap}
+.trustMark{display:flex;align-items:center;gap:9px;padding:9px 12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.45);text-decoration:none;color:var(--ink)}
+.trustMark svg{width:20px;height:20px}
+.trustMark span{display:grid;line-height:1.05}
+.trustMark small{font-size:6px;letter-spacing:.12em;color:#94867e;font-weight:700}
+.trustMark b{font-size:11px;margin-top:3px}

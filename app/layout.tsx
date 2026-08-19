@@ -16,7 +16,7 @@ export const metadata: Metadata = {
       'Free, open-source online booking for independent stylists, home salons and chair renters.',
     images: [
       {
-        url: '/opengraph-image',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'SoloSalon — Your bookings. Your business.',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: 'SoloSalon — Your bookings. Your business.',
     description:
       'Free, open-source online booking for independent stylists, home salons and chair renters.',
-    images: ['/opengraph-image'],
+    images: ['/og-image.png'],
   },
   icons: { icon: '/icon.svg' },
 };

@@ -15,3 +15,7 @@ This is a complete application package and includes `app/globals.css`, so the ro
 
 ## Database
 No Supabase migration is required.
+
+## OG image fix
+- Added a real static `public/og-image.png` (1200×630)
+- Metadata now references `/og-image.png` directly

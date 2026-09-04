@@ -1,5 +1,3 @@
-![SoloSalon](public/og-image.png)
-
 # SoloSalon
 
 **Free, open-source online booking for solo stylists, home salons and independent salon operators.**
